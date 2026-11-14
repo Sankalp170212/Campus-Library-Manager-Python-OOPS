@@ -1,0 +1,76 @@
+PS D:\Sankalp's\Python Project> python .\main.py
+============================================================
+       LIBRARY MANAGEMENT SYSTEM DEMONSTRATION
+============================================================
+
+[CHECKPOINT 1] Testing Abstract Class Instantiation:
+Success: Direct instantiation of LibraryItem raised TypeError:
+  -> Can't instantiate abstract class LibraryItem without an implementation for abstract method 'late_fee'
+
+[1] Borrowing with Error Handling:
+Alice borrowed: Book: Python 101 by A. Rao (ID 1)
+Could not borrow: 'Python 101' is already borrowed.
+
+[2] Triggering Borrow-Limit Error & Not-Borrowed Error:
+Bob borrowed: Magazine: Tech Monthly Issue #42 (ID 2)
+Could not borrow (Borrow limit reached): Bob has reached the borrowing limit of 1 item(s).
+Could not return (Item not borrowed): 'Inception' is not in Alice's borrowed list.
+Alice successfully returned 'Python 101' with a late fee of Rs 4.
+
+[CHECKPOINT 2] Testing Borrow Limit (4th item for Alice):
+Alice borrowed 3 items: ['Python 101', 'Inception', 'Clean Code']
+Could not borrow (4th item limit): Alice has reached the borrowing limit of 3 item(s).
+
+[3] Polymorphism: One Loop, No Type Checks (late fee for 3 days):
+Book: Python 101 by A. Rao (ID 1) -> late fee for 3 days: Rs 6
+Magazine: Tech Monthly Issue #42 (ID 2) -> late fee for 3 days: Rs 3      
+DVD: Inception (148 mins) (ID 3) -> late fee for 3 days: Rs 15
+
+[4] Class Attribute shared by all objects:
+Total items created (via LibraryItem.total_items): 5
+Total items created (via Book.total_items): 5
+
+[5] Proving Encapsulation:
+Attempting to access book.__available directly...
+Success: Direct access to '__available' raised AttributeError:
+PS D:\Sankalp's\Python Project> python .\main.py
+LIBRARY MANAGEMENT SYSTEM
+
+[CHECKPOINT 1] Testing Abstract Class
+Cannot create LibraryItem: Can't instantiate abstract class LibraryItem without an implementation for abstract method 'late_fee'
+
+[CHECKPOINT 2] Testing Borrowing and Error Handling
+Alice borrowed: Book: Python 101 by A. Rao (ID 1)
+Could not borrow: 'Python 101' is already borrowed.
+
+[CHECKPOINT 3] Testing Borrow Limit
+Bob borrowed: Magazine: Tech Monthly Issue #42 (ID 2)
+Could not borrow: Bob has reached the borrowing limit of 1 item(s).       
+
+[CHECKPOINT 4] Testing Return Error
+Could not return: 'Inception' is not in Alice's borrowed list.
+
+[CHECKPOINT 5] Testing Successful Return and Late Fee
+Alice returned: Python 101
+Late fee: Rs 4
+
+[CHECKPOINT 6] Testing Alice's Borrowing Limit
+Alice borrowed: ['Python 101', 'Inception', 'Clean Code']
+Could not borrow: Alice has reached the borrowing limit of 3 item(s).     
+
+[CHECKPOINT 7] Testing Polymorphism
+Book: Python 101 by A. Rao (ID 1) -> Late fee: Rs 6
+Magazine: Tech Monthly Issue #42 (ID 2) -> Late fee: Rs 3
+DVD: Inception (148 mins) (ID 3) -> Late fee: Rs 15
+
+[CHECKPOINT 8] Testing Class Attribute
+Total items: 5
+Total books: 5
+
+[CHECKPOINT 9] Testing Encapsulation
+Cannot access private availability directly
+Book availability: False
+Cannot access private borrowed list directly
+Borrowed books: ['Python 101', 'Inception', 'Clean Code']
+
+All checkpoints completed.

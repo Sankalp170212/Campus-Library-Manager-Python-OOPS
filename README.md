@@ -1,0 +1,8 @@
+Why is LibraryItem abstract, and what happens if DVD forgets to write late_fee()?
+LibraryItem is abstract because it serves as an incomplete common blueprint for all library items and should not be instantiated directly. It defines the required contract and shared behavior across all item types using Python's abc module. If DVD forgets to implement the abstract late_fee() method, Python will raise a TypeError when attempting to instantiate DVD, preventing an incomplete object from ever being created.
+
+What happens when you read item.__available from outside the class, and why do we use is_available() instead?
+Reading item.__available from outside the class raises an AttributeError because Python applies name mangling to double-underscore attributes, internally renaming it to _LibraryItem__available. We use the is_available() method instead because it provides a safe, read-only public interface that enforces encapsulation. This protects internal state from unauthorized external tampering while ensuring availability is changed only through validated methods like mark_borrowed() and mark_returned().
+
+What is the difference between LibraryItem.total_items and self.title?
+LibraryItem.total_items is a class attribute shared across all instances of LibraryItem and its subclasses, acting as a global counter for every item created. In contrast, self.title is an instance attribute unique to each individual object, storing the title of that specific item. Changing total_items affects the shared count across the entire class, whereas changing self.title affects only that single instance.
